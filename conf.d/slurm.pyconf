@@ -1,0 +1,22 @@
+modules {
+  module {
+    name = "slurm"
+    language = "python"
+  }
+}
+
+
+collection_group {
+  collect_every = 1
+  time_threshold = 1
+
+  metric {
+    name_match = "slurm_jobs_RUNNING"
+    value_threshold = 1.0
+  }
+
+  metric {
+    name_match = "slurm_jobs_PENDING"
+    value_threshold = 1.0
+  }
+}

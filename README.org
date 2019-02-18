@@ -1,0 +1,5 @@
+* Slurm module for Ganglia
+
+Currently this module shows the number of ~RUNNING~ and ~PENDING~ jobs
+in the Slurm queue. I plan to add many more metrics soon.
+
