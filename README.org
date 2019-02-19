@@ -1,5 +1,23 @@
 * Slurm module for Ganglia
 
-Currently this module shows the number of ~RUNNING~ and ~PENDING~ jobs
-in the Slurm queue. I plan to add many more metrics soon.
+This plugin was written to monitor the GPU cluster in the [[http://cvl.cs.nott.ac.uk/][Computer
+Vision Laboratory]] at the University of Nottingham.
+
+** What this module shows (so far):
+
+- ~slurm_jobs_running~
+- ~slurm_jobs_pending~
+- ~slurm_gpu_free~
+- ~slurm_gpu_alloc~
+
+** How do I install it?
+
+Run ~make~ as root and it should copy things into place. Assuming a
+systemd system, run ~systemctl restart gmond~ to reload the python
+configs.
+
+** Contributing
+
+Please do feel free to send a pull request if you'd like to add some
+functionality.
 
