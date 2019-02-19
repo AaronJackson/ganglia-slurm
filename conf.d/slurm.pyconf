@@ -19,4 +19,13 @@ collection_group {
     name_match = "slurm_jobs_PENDING"
     value_threshold = 1.0
   }
-}
+
+  metric {
+    name_match = "slurm_gpu_free"
+    value_threshold = 1.0
+  }
+
+  metric {
+    name_match = "slurm_gpu_alloc"
+    value_threshold = 1.0
+  }}
