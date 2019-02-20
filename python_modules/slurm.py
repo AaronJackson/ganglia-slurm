@@ -11,7 +11,7 @@ def slurm_handler(name):
     p = name.split('_')
     now = time.time()
 
-    if now-cached_time > 20:
+    if now-cached_time > 2:
         cached_time = now
         w = subprocess.check_output(["squeue", "-h", "-Ostate"])
         w = w.replace(' ', '').splitlines()
@@ -55,7 +55,27 @@ def metric_init(params):
           'description': 'number of pending slurm jobs',
           'groups': 'health'}
 
-    d3 = {'name': 'slurm_gpu_free',
+    d3 = {'name': 'slurm_jobs_COMPLETING',
+          'call_back': slurm_handler,
+          'time_max': 20,
+          'value_type': 'uint',
+          'units': 'jobs',
+          'slope': 'both',
+          'format': '%u',
+          'description': 'number of completing jobs',
+          'groups': 'health'}
+
+    d4 = {'name': 'slurm_jobs_SUSPENDED',
+          'call_back': slurm_handler,
+          'time_max': 20,
+          'value_type': 'uint',
+          'units': 'jobs',
+          'slope': 'both',
+          'format': '%u',
+          'description': 'number of suspended jobs',
+          'groups': 'health'}
+
+    d5 = {'name': 'slurm_gpu_free',
           'call_back': slurm_handler,
           'time_max': 20,
           'value_type': 'uint',
@@ -65,7 +85,7 @@ def metric_init(params):
           'description': 'number of free gpus',
           'groups': 'health'}
 
-    d4 = {'name': 'slurm_gpu_alloc',
+    d6 = {'name': 'slurm_gpu_alloc',
           'call_back': slurm_handler,
           'time_max': 20,
           'value_type': 'uint',
@@ -75,7 +95,7 @@ def metric_init(params):
           'description': 'number of alloc gpus',
           'groups': 'health'}
 
-    descriptors = [d1, d2, d3, d4]
+    descriptors = [d1, d2, d3, d4, d5, d6]
 
     return descriptors
 

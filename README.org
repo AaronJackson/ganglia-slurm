@@ -7,6 +7,8 @@ Vision Laboratory]] at the University of Nottingham.
 
 - ~slurm_jobs_running~
 - ~slurm_jobs_pending~
+- ~slurm_jobs_completing~
+- ~slurm_jobs_suspended~
 - ~slurm_gpu_free~
 - ~slurm_gpu_alloc~
 

@@ -21,6 +21,16 @@ collection_group {
   }
 
   metric {
+    name_match = "slurm_jobs_COMPLETING"
+    value_threshold = 1.0
+  }
+
+  metric {
+    name_match = "slurm_jobs_SUSPENDED"
+    value_threshold = 1.0
+  }
+
+  metric {
     name_match = "slurm_gpu_free"
     value_threshold = 1.0
   }
